@@ -25,5 +25,21 @@ int main() {
   }
   dp[0][0] = mountain[0][0];
   parent[0][0] = -1;
+  for (int i = 0; i < N - 1; i++) {
+    for (int j = 0; j <= i; j++) {
+      //  Спускаемся вниз-влево (в клетку (i+1, j))
+      int summa = dp[i][j] + mountain[i + 1][j];
+      if (summa < dp[i + 1][j]) {
+        dp[i + 1][j] = summa;
+        parent[i + 1][j] = j; //  запоминаем, что пришли из столбца j
+      }
+      //  Спускаемся вниз-вправо (в клетку (i+1, j+1))
+      summa = dp[i][j] + mountain[i + 1][j + 1];
+      if (summa < dp[i + 1][j + 1]) {
+        dp[i + 1][j + 1] = summa;
+        parent[i + 1][j + 1] = j; //  запоминаем, что пришли из столбца j
+      }
+    }
+  }
   
 }
