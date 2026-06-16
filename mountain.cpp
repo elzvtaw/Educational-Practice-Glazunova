@@ -49,5 +49,18 @@ int main() {
       min_column = j;
     }
   }
-  
+  std::vector<int> path;
+  int line = N - 1;
+  int column = min_column;
+  while (line != -1) {
+    path.push_back(mountain[line][column]);
+    column = parent[line][column];
+    line--;
+  }  
+  reverse(path.begin(), path.end()); 
+  std::cout << min_sum << std::endl;
+  for (int i = 0; i < path.size(); i++) {
+    std::cout << path[i] << ' ';
+  }
+  return 0;
 }
