@@ -41,5 +41,13 @@ int main() {
       }
     }
   }
+  int min_sum = dp[N - 1][0];
+  int min_column = 0;
+  for (int j = 1; j < N; j++) {
+    if (dp[N - 1][j] < min_sum) {
+      min_sum = dp[N - 1][j];
+      min_column = j;
+    }
+  }
   
 }
