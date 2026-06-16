@@ -2,6 +2,15 @@
 #include <vector>
 #include <algorithm>
 
+void Dfs(std::vector<std::vector<int>>& graph, int v, std::vector<bool>& visited) {
+  visited[v] = true;
+  for (int child : graph[v]) {
+    if (visited[child] == false) {
+      Dfs(graph, child, visited);
+    }
+  }
+}
+
 int main() {
   int N = 0;
   int M = 0;
