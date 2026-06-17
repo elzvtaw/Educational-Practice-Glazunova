@@ -21,7 +21,10 @@ int main() {
       int x = 0;
       std::cin >> i >> x;
       snow[i] += x;
-
+      summa[0] = 0;
+      for (int a = 1; a <= n; ++a) {
+        summa[a] = summa[a - 1] + snow[a];
+      }
     }
   }
 }
