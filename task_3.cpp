@@ -25,6 +25,13 @@ int main() {
       for (int a = 1; a <= n; ++a) {
         summa[a] = summa[a - 1] + snow[a];
       }
+    } else {
+      int u = 0;
+      int r = 0;
+      std::cin >> u >> r;
+      int res = summa[r] - summa[u - 1];
+      std::cout << res << std::endl;
     }
   }
+  return 0;
 }
