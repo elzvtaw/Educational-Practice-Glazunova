@@ -13,5 +13,15 @@ int main() {
   for (int m = 0; m <= n; ++m) {
     summa[m] = 0;
   }
-  
+  for (int j = 0; j < k; ++j) {
+    int id = 0;
+    std::cin >> id;
+    if (id == 1) {
+      int i = 0;
+      int x = 0;
+      std::cin >> i >> x;
+      snow[i] += x;
+
+    }
+  }
 }
