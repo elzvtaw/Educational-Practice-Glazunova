@@ -22,5 +22,10 @@ int main() {
   }
   std::string s;
   std::cin >> s;
-
+  std::string result = s;
+  for (int j = 0; j < k; ++j) {
+    result = Permutation(result, p);
+  }
+  std::cout << result << std::endl;
+  return 0;
 }
