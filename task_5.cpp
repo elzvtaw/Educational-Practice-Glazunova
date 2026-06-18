@@ -14,5 +14,23 @@ int main() {
       std::cin >> matrix[i][j];
     }
   }
+  for (int i = 0; i < w; ++i) {
+    for (int j = 0; j < h; ++j) {
+      if (matrix[i][j] == 1) {
+        if (i < min_line) {
+          min_line = i;
+        } 
+        if (j < min_column) {
+          min_column = j;
+        } 
+        if (i > max_line) {
+          max_line = i;
+        }
+        if (j > max_column) {
+          max_column = j;
+        }
+      }
+    }
+  }
 
 }
