@@ -25,5 +25,5 @@ int main() {
     std::cout << count << ' ';
   }
   std::cout << std::endl;
-  return 0;
+  return 0; 
 } 
