@@ -14,6 +14,10 @@ int main() {
     int b1 = std::min(b, x);
     x -= b1;
     count += b1;
-
+    int a2 = std::min(a, y);
+    a -= a2;
+    y -= a2;
+    count += a2;
+    
   } 
 }
