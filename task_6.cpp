@@ -11,6 +11,9 @@ int main() {
     int y = 0;
     std::cin >> a >> b >> x >> y;
     int count = 0;
-    
+    int b1 = std::min(b, x);
+    x -= b1;
+    count += b1;
+
   } 
 }
