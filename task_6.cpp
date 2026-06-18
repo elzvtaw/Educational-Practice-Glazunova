@@ -18,6 +18,12 @@ int main() {
     a -= a2;
     y -= a2;
     count += a2;
-    
-  } 
-}
+    int a1 = std::min(a, x);
+    a -= a1;
+    x -= a1;
+    count += a1;
+    std::cout << count << ' ';
+  }
+  std::cout << std::endl;
+  return 0;
+} 
