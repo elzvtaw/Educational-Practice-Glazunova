@@ -32,5 +32,10 @@ int main() {
       }
     }
   }
-
+  int left_line = min_line - 1;
+  int left_column = min_column - 1;
+  int right_line = max_line + 1;
+  int right_column = max_column + 1;
+  std::cout << left_line << ' ' << left_column << ' ' << right_line << ' ' << right_column << std::endl;
+  return 0;
 }
