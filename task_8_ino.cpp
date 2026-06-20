@@ -72,3 +72,23 @@ void setup() {
   strip.show();
   strip.setBrightness(BRIGHTNESS);
 }
+
+void loop() {
+  // Фиолетовый круг 3 секунды
+   ShowPurpleCircle(3);
+  
+  // Очистка
+  strip.clear();
+  strip.show();
+  delay(500);
+  
+  // Радуга 5 секунд (бесконечный цикл)
+  for (int i = 0; i < 250; i++) {
+    RainbowEffect(20);
+  }
+  
+  // Очистка
+  strip.clear();
+  strip.show();
+  delay(500);
+}
