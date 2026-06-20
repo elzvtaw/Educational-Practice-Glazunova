@@ -27,7 +27,7 @@ void setPixelXY(int x, int y, uint32_t color) {
 }
 
 // Фиолетовый круг
-void showPurpleCircle(unsigned long duration) {
+void ShowPurpleCircle(unsigned long duration) {
   uint8_t circle[8][8] = {
     {0,0,1,1,1,1,0,0},
     {0,1,1,1,1,1,1,0},
@@ -53,4 +53,22 @@ void showPurpleCircle(unsigned long duration) {
     strip.show();
     delay(50);
   }
+}
+
+// Радужная волна
+void RainbowEffect(int wait) {
+  for (long firstPixelHue = 0; firstPixelHue < 65536; firstPixelHue += 256) {
+    for (int i = 0; i < strip.numPixels(); i++) {
+      int pixelHue = firstPixelHue + (i * 65536L / strip.numPixels());
+      strip.setPixelColor(i, strip.gamma32(strip.ColorHSV(pixelHue)));
+    }
+    strip.show();
+    delay(wait);
+  }
+}
+
+void setup() {
+  strip.begin();
+  strip.show();
+  strip.setBrightness(BRIGHTNESS);
 }
