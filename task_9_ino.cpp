@@ -29,3 +29,34 @@ void CloseDoors() {
   Serial.println("Двери закрыты");
 }
 
+void loop() {
+  int sensorValue = analogRead(LDR_PIN);
+  Serial.print("Значение фоторезистора: ");
+  Serial.println(sensorValue);
+  // Если человек приблизился (значение > 512)
+  if (sensorValue > THRESHOLD) {
+    if (!isOpen) {
+      OpenDoors();
+    }
+    openStartTime = millis();  // Обновляем время
+  } 
+  else {
+    // Если двери открыты и прошло больше OPEN_TIME
+    if (isOpen && (millis() - openStartTime > OPEN_TIME)) {
+      // Проверяем значение снова
+      int currentValue = analogRead(LDR_PIN);
+      Serial.print("Проверка через 3 секунды: ");
+      Serial.println(currentValue);
+      if (currentValue > THRESHOLD) {
+        // Человек всё ещё рядом -> двери остаются открытыми
+        openStartTime = millis();  // Сбрасываем таймер
+        Serial.println("Двери остаются открытыми (человек рядом)");
+      } else {
+        // Человек ушёл -> закрываем двери
+        CloseDoors();
+      }
+    }
+  }
+  delay(50);
+}
+
