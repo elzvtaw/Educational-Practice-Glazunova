@@ -10,7 +10,20 @@ void setup() {
   pinMode(RED_LED, OUTPUT);
   pinMode(GREEN_LED, OUTPUT);
   Serial.begin(9600);
+  digitalWrite(RED_LED, HIGH);
+  digitalWrite(GREEN_LED, LOW);
+  Serial.println("Двери закрыты");
+}
 
+void OpenDoors() {
+  isOpen = true;
+  digitalWrite(RED_LED, LOW);
+  digitalWrite(GREEN_LED, HIGH);
+  Serial.println("Двери открыты");
+}
+
+void CloseDoors() {
+  isOpen = false;
   digitalWrite(RED_LED, HIGH);
   digitalWrite(GREEN_LED, LOW);
   Serial.println("Двери закрыты");
