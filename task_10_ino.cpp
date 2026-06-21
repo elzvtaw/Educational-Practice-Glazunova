@@ -3,7 +3,7 @@
 #define SERVO_PIN 3  // Пин для сервопривода
 
 Servo myServo;  // Создаём объект для сервопривода
-int currentAngle = 0;  // Текущий угол (по умолчанию 90°)
+int currentAngle = 0;  // Текущий угол (начальный = 0)
 
 void setup() {
   Serial.begin(9600);  // Запуск последовательного порта
@@ -13,3 +13,18 @@ void setup() {
   Serial.print("Текущий угол: ");
   Serial.println(currentAngle);
 }
+
+// Функция проверки, что строка состоит только из цифр
+bool isNumber(String str) {
+  if (str.length() == 0) {
+    return false;
+  }
+  for (int i = 0; i < str.length(); i++) {
+    if (!isDigit(str.charAt(i))) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
