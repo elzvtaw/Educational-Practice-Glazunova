@@ -1,0 +1,18 @@
+#define RED_LED 9  // Красный светодиод (двери закрыты)
+#define GREEN_LED 5  // Зелёный светодиод (двери открыты)
+#define LDR_PIN A0  // Фоторезистор
+#define THRESHOLD 512  // Порог срабатывания (0-1023)
+#define OPEN_TIME 3000  // Время, которое двери остаются открытыми (мс)
+unsigned long openStartTime = 0;  // Время открытия
+bool isOpen = false;  // Статус дверей
+
+void setup() {
+  pinMode(RED_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+  Serial.begin(9600);
+
+  digitalWrite(RED_LED, HIGH);
+  digitalWrite(GREEN_LED, LOW);
+  Serial.println("Двери закрыты");
+}
+
