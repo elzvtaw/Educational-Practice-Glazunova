@@ -28,3 +28,8 @@ for i, contour in enumerate(contours):
         center = (int(x + w/2), int(y + h/2))
         cv2.circle(image, center, 7, (0, 0, 255), 2)
         cv2.drawContours(image, [contour], -1, (255, 0, 0), 4)
+
+# Показ результата
+cv2.imshow("result", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
